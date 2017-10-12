@@ -44,7 +44,19 @@ class Tree {
   // Continues recursively until the value has been found or all of the children
   // have been checked
   contains(value) {
+    let found = false;
+    let current = this.root;
 
+    while(!found && current) {
+      if (value < current.value) {
+        current = current.left;
+      } else if(value > current.value) {
+        current = current.right;
+      } else {
+        found = true;
+      }
+    }
+    return found;
   }
 }
 
